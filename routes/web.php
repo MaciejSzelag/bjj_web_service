@@ -3,17 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PageController;
 
+Route::get('/',[PageController::class, "home"])->name("page.home");
+Route::get('/about',[PageController::class, "about"])->name("page.about");
+Route::get('/contact',[PageController::class, "contact"])->name("page.contact");
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/about', function () {
-    return view('about');
-})->name('about.page');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact.page');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

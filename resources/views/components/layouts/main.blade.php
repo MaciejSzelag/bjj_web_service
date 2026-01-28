@@ -21,10 +21,10 @@
     <x-layouts.header>
         {{$slot}}
     </x-layouts.header>
-    <div class="w-full min-h-[100vh] pt-10 bg-gray-100">
-        <main class="w-full flex justify-center items-center">
+    <div class="w-full min-h-[100vh]  bg-gray-100">
+        <main class="w-full flex justify-center items-center pt-[65px]">
 
-            <div class="w-full flex justify-center items-center flex-col">
+            <div class="w-full flex  justify-center items-center flex-col bg-slate-50">
                 {{$slot}}
             </div>
         </main>

@@ -17,9 +17,13 @@ export default {
                 'anton-regular': ['Anton', 'sans-serif'],
             },
             colors: {
-                'brand-primary-color': colors.cyan[950],
+                'brand-primary-color': colors.slate[800],
+                'brand-secondary-color': colors.slate[700],
 
             },
+            // backgroundImage: {
+            //     'logo-3d': "url('/images/Checkmat_logo_3D.png')",
+            // }
         },
     },
 
