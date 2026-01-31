@@ -1,3 +1,6 @@
 <x-layouts.main title="About Us">
-    <h1>Strona About</h1>
+    <x-page-header :page_title="$page_title" :page_img="$page_img">
+        {{$page_title}}
+    </x-page-header>
+
 </x-layouts.main>

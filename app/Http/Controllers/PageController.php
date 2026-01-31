@@ -34,21 +34,45 @@ class PageController extends Controller
         ];
 
         $small_cards = [
-            ['title'=> 'Beginner Brazilian Jiu-Jitsu Classes in Plymouth', 'content'=>'New to Brazilian Jiu-Jitsu? Our beginner BJJ classes in Plymouth focus on the fundamentals of BJJ, including basic techniques, positioning, and grappling principles.'],
-            ['title'=> 'Kids\' BJJ Classes in Plymouth', 'content'=>'Looking for Brazilian Jiu-Jitsu classes for kids in Plymouth? Our kids\' program teaches discipline, respect, and teamwork in a fun and engaging way.'],
-            ['title'=> 'Advanced BJJ Training in Plymouth', 'content'=>'For experienced BJJ students in Plymouth, our advanced classes offer rigorous drills, sparring sessions, and competition-focused training.'],
-            ['title'=> 'Wrestling for Brazilian Jiu-Jitsu', 'content'=>'Enhance your grappling skills with our Wrestling for Jiu-Jitsu classes in Plymouth. Wrestling techniques are essential for improving your takedowns, control, and overall effectiveness in Brazilian Jiu-Jitsu. Perfect for BJJ practitioners looking to gain a competitive edge.'],
-            ['title'=> 'Judo for Jiu-Jitsu in Plymouth', 'content'=>'Master the art of throws and takedowns with our Judo for Jiu-Jitsu sessions in Plymouth. Judo complements BJJ by teaching effective standing techniques and grip fighting, crucial for gaining dominant positions and initiating ground control. Our dedicated Judo class helps BJJ practitioners refine their ability to transition smoothly from standing to the ground, enhancing their overall grappling game.'],
+            ['title'=> 'Beginner Brazilian Jiu-Jitsu Classes in Plymouth', 
+            'content'=>'New to Brazilian Jiu-Jitsu? Our beginner BJJ classes in Plymouth focus on the fundamentals of BJJ, including basic techniques, positioning, and grappling principles.',
+            'btn-route'=>'page.about'
+            ],
+            ['title'=> 'Kids\' BJJ Classes in Plymouth', 
+            'content'=>'Looking for Brazilian Jiu-Jitsu classes for kids in Plymouth? Our kids\' program teaches discipline, respect, and teamwork in a fun and engaging way.',
+            'btn-route'=>'page.about'
+            ],
+            ['title'=> 'Advanced BJJ Training in Plymouth', 
+            'content'=>'For experienced BJJ students in Plymouth, our advanced classes offer rigorous drills, sparring sessions, and competition-focused training.',
+            'btn-route'=>'page.about'
+            ],
+    
+            ['title'=> 'Wrestling for Brazilian Jiu-Jitsu', 
+            'content'=>'Enhance your grappling skills with our Wrestling for Jiu-Jitsu classes in Plymouth. Wrestling techniques are essential for improving your takedowns, control, and overall effectiveness in Brazilian Jiu-Jitsu. Perfect for BJJ practitioners looking to gain a competitive edge.',
+            'btn-route'=>'page.about'
+            ],
+            ['title'=> 'Judo for Jiu-Jitsu in Plymouth', 
+            'content'=>'Master the art of throws and takedowns with our Judo for Jiu-Jitsu sessions in Plymouth. Judo complements BJJ by teaching effective standing techniques and grip fighting, crucial for gaining dominant positions and initiating ground control. Our dedicated Judo class helps BJJ practitioners refine their ability to transition smoothly from standing to the ground, enhancing their overall grappling game.',
+            'btn-route'=>'page.about'],
         ];
 
         return view('welcome', compact('small_cards','img_cards'));
     }
     public function about(){
+        $data = [
+                    'page_title' => 'O nas - Poznaj naszą historię',
+                    'page_img' => 'images/Checkmat-team.png',
+                 
+                ];
 
-        return view('about');
+        return view('about', $data);
     }
     public function contact(){
-
-        return view('contact');
+    $data = [
+                    'page_title' => 'Conatct us',
+                    'page_img' => 'images/Checkmat-team.png',
+                 
+                ];
+        return view('contact',$data);
     }
 }

@@ -55,6 +55,24 @@
 
         </div>
     </div>
+    <div id="more" class="w-full h-auto p-10 pt-20 pb-20 flex justify-center items-center bg-slate-800 ">
+
+
+        <div class="w-[90%] h-[80vh] bg-no-repeat bg-center bg-cover rounded-lg"
+            style="background-image: url(/images/Checkmat-team.png)">
+            <div class="w-full h-full bg-slate-950/70 flex justify-center items-center p-60">
+                <figure class="font-anton-regular text-white">
+                    <blockquote>
+                        <p class="text-6xl font-anton-regular">You don’t need to be in shape to start Jiu-Jitsu. You
+                            start Jiu-Jitsu to get
+                            in shape.</p>
+                    </blockquote>
+                    <figcaption class="mt-6 text-4xl text-gray-300">— <i>Joe Rogan</i></figcaption>
+                </figure>
+            </div>
+
+        </div>
+    </div>
     <div id="why-checkmat" class="w-full h-auto flex justify-center items-center bg-slate-300">
 
         <div
@@ -95,11 +113,11 @@
                     <p class="text-5xl text-center font-anton-regular ">
                         Our BJJ Programs in Plymouth</p>
                 </div>
-                <div class="w-[95%] text-xl flex justify-evenly flex-wrap text-brand-primary-color">
+                <div class="w-[95%] text-xl flex justify-evenly items-center flex-wrap text-brand-primary-color">
 
                     {{-- cards --}}
                     @foreach ($small_cards as $card )
-                    <x-small-card>
+                    <x-small-card :btn_route="$card['btn-route']">
                         <x-slot:title>
                             {{$card['title']}}
                         </x-slot:title>
@@ -110,7 +128,7 @@
 
 
                 </div>
-                {{-- <div class="w-[80%] flex justify-between mt-4">
+                {{-- <div class=" w-[80%] flex justify-between mt-4">
                     <div>
                         <x-button-link :href="route('page.about')">
                             {{ __('About Us') }}
