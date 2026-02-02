@@ -13,7 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
 </head>
 
 <body class="bg-white dark:bg-[#0a0a0a] text-[#1b1b18] flex  items-center lg:justify-center min-h-screen flex-col">
@@ -21,16 +27,16 @@
     <x-layouts.header>
         {{$slot}}
     </x-layouts.header>
-    <div class="w-full min-h-[100vh]  bg-white">
+    <div class="w-full h-[100vh]  bg-white">
         <main class="w-full flex justify-center items-center pt-[65px]">
 
-            <div class="w-full max-w-[1920px] flex  justify-center items-center flex-col bg-white">
+            <div class="w-full flex  justify-center items-center flex-col bg-white">
                 {{$slot}}
             </div>
         </main>
-
+        <x-footer />
     </div>
-    <x-footer />
+
     @if (Route::has('login'))
     <div class="h-14.5 hidden lg:block"></div>
     @endif

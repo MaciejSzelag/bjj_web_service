@@ -11,8 +11,8 @@
         <h2 class="font-anton-regular text-center text-2xl">{{$card_title}}
         </h2>
     </div>
-    <div class="p-5 text-2lg border-b border-slate-500">
-        <p>
+    <div class="p-5 border-b border-slate-500">
+        <p class="text-lg">
             {{$slot}}
         </p>
     </div>

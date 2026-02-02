@@ -60,8 +60,8 @@ class PageController extends Controller
     }
     public function about(){
         $data = [
-                    'page_title' => 'O nas - Poznaj naszą historię',
-                    'page_img' => 'images/Checkmat-team.png',
+                    'page_title' => 'About Us - The Story Behind Checkmat Plymouth',
+                    'page_img' => 'images/Checkmat-wallpaper.jpg',
                  
                 ];
 
