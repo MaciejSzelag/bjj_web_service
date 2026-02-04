@@ -53,6 +53,9 @@
             <x-nav-link :href="route('page.about')" :active="request()->routeIs('page.about')">
                 {{ __('About') }}
             </x-nav-link>
+            <x-nav-link :href="route('page.timetable')" :active="request()->routeIs('page.timetable')">
+                {{ __('Timetable') }}
+            </x-nav-link>
 
             <x-nav-link :href="route('page.contact')" :active="request()->routeIs('page.contact')">
                 {{ __('Contact') }}

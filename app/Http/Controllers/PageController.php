@@ -67,6 +67,15 @@ class PageController extends Controller
 
         return view('about', $data);
     }
+    public function timetable(){
+        $data = [
+                    'page_title' => 'Timetable',
+                    'page_img' => 'images/Checkmat-wallpaper.jpg',
+                 
+                ];
+
+        return view('timetable', $data);
+    }
     public function contact(){
     $data = [
                     'page_title' => 'Conatct us',

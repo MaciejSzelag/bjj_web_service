@@ -5,6 +5,65 @@
     <div class="max-w-[1440px] p-10 pt-20 pb-20 text-xl">
         <div class="w-full h-full flex justify-center items-center flex-col ">
             <div class="w-full mb-20 flex justify-center items-center flex-col ">
+
+                <div
+                    class="w-full mb-20 mt-10 pb-10 flex justify-center items-center flex-col  bg-slate-600 rounded-xl">
+                    <div class="w-[80%]  p-10 text-slate-200 space-y-6">
+                        <p class="text-center font-anton-regular text-6xl">BJJ Plymouth Founder and instructors </p>
+                    </div>
+                    <div
+                        class="w-[80%] flex justify-evenly items-start flex-wrap  rounded-lg shadow-lg p-10 text-slate-900 ">
+                        <div
+                            class="w-2/5  bg-gray-100 flex justify-center items-center flex-col space-y-4 mb-6 border border-slate-300 rounded-xl p-10 shadow-xl shadow-gray-400">
+                            <p class="font-anton-regular text-xl">Ian Harrop</p>
+                            <p class="text-lg">Lead Instructor Ian Harrop has been immersed in martial arts from a young
+                                age, exploring various disciplines before discovering Brazilian Jiu-Jitsu (BJJ) in 2007.
+                                Instantly captivated by the sport, Ian dedicated himself fully to mastering BJJ,
+                                traveling the globe to compete, train, and learn from some of the greatest names in the
+                                sport. His relentless pursuit of excellence and his passion for continuous improvement
+                                have defined his journey in BJJ..</p>
+                        </div>
+                        <div
+                            class="w-2/5 bg-gray-100 flex justify-center items-center flex-col space-y-4 mb-6 border border-slate-300 rounded-xl p-10 shadow-xl shadow-gray-400">
+                            <p class="font-anton-regular text-xl">Instruction and Training Philosophy</p>
+                            <div>
+                                <img src="{{asset('images/bjj_person_3d_1.PNG')}}"
+                                    alt="Ian Harrop - Founder and Lead Instructor at Checkmat Plymouth (bjjplymouth)">
+                            </div>
+                        </div>
+                        <div
+                            class="w-2/5 bg-gray-100 flex justify-center items-center flex-col space-y-4 mb-6 border border-slate-300 rounded-xl p-10 shadow-xl shadow-gray-400">
+                            {{-- <p class="font-anton-regular text-xl">Instruction and Training Philosophy</p> --}}
+                            <p class="text-lg">Ian continues to compete sporadically, however has chosen to focus more
+                                on his students & coaching. He holds a BSc in Strength, Conditioning & Sports Coaching,
+                                Ian has a holistic approach to athletic development. His background in physical
+                                preparation complements his BJJ coaching, equipping his students with a well-rounded
+                                approach to training that enhances their performance on the mat.
+
+                                Whether he’s coaching a beginner or a seasoned competitor, Ian's passion for the sport
+                                and his commitment to his students’ growth are at the heart of everything he does. At
+                                Checkmat Plymouth, Ian continues to inspire, mentor, and shape the next generation of
+                                martial artists.
+                            </p>
+                        </div>
+                        <div
+                            class="w-2/5 bg-gray-100 flex justify-center items-center flex-col space-y-4 mb-6 border border-slate-300 rounded-xl p-10 shadow-xl shadow-gray-400">
+                            {{-- <p class="font-anton-regular text-xl">Instruction and Training Philosophy</p> --}}
+                            <p class="text-lg">Checkmat Plymouth offers classes for various skill levels, from beginners
+                                to advanced
+                                practitioners, and often includes specialized classes for children and adults. Their
+                                training typically emphasizes both the self-defense aspects of Brazilian Jiu-Jitsu and
+                                the sport's competitive elements. The academy may also host seminars featuring prominent
+                                Checkmat black belts and world champions, providing members with opportunities to learn
+                                from some of the best in the world.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="w-full mb-20 flex justify-center items-center flex-col ">
                 <div class="w-[80%]  rounded-lg  p-10 text-slate-900 ">
                     <h1 class="text-center font-anton-regular text-6xl">History of Checkamt Plymouth</h1>
 

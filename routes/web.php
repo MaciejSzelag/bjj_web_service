@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 Route::get('/',[PageController::class, "home"])->name("page.home");
 Route::get('/about',[PageController::class, "about"])->name("page.about");
 Route::get('/contact',[PageController::class, "contact"])->name("page.contact");
+Route::get('/timetable',[PageController::class, "timetable"])->name("page.timetable");
 
 
 Route::get('/dashboard', function () {
