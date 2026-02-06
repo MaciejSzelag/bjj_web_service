@@ -68,20 +68,144 @@ class PageController extends Controller
         return view('about', $data);
     }
     public function timetable(){
-        $data = [
-                    'page_title' => 'Timetable',
-                    'page_img' => 'images/Checkmat-wallpaper.jpg',
-                 
-                ];
 
-        return view('timetable', $data);
+        $data = [
+                'page_title' => 'Timetable',
+                'page_img' => 'images/Checkmat-wallpaper.jpg',
+        ];
+        $schedule_data = [
+            'Monday' => [
+                'class_a' => [
+                    'class_start' => '06:00',
+                    'class_end' => '07:00',
+                    'class_name' => 'GI Adults',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+                'class_b' => [
+                    'class_start' => '10:00',
+                    'class_end' => '11:00',
+                    'class_name' => 'GI Adults',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+                'class_c' => [
+                    'class_start' => '18:30',
+                    'class_end' => '20:00',
+                    'class_name' => 'GI Adults - Fundamentals',
+                    'class_coach' => 'Elias Freeman',
+                    'class_location' => 'Main Gym',
+                ],
+            ],
+            
+            'Tuesday' => [
+                'class_a' => [
+                    'class_start' => '07:00',
+                    'class_end' => '08:30',
+                    'class_name' => 'No-Gi Advanced',
+                    'class_coach' => 'Sarah Johnson',
+                    'class_location' => 'Mat Room 1',
+                ],
+                'class_b' => [
+                    'class_start' => '17:00',
+                    'class_end' => '18:30',
+                    'class_name' => 'Kids BJJ',
+                    'class_coach' => 'Mike Chen',
+                    'class_location' => 'Kids Area',
+                ],
+            ],
+            
+            'Wednesday' => [
+                'class_a' => [
+                    'class_start' => '09:00',
+                    'class_end' => '10:30',
+                    'class_name' => 'Morning Yoga',
+                    'class_coach' => 'Lisa Wong',
+                    'class_location' => 'Yoga Studio',
+                ],
+                'class_b' => [
+                    'class_start' => '19:00',
+                    'class_end' => '20:30',
+                    'class_name' => 'Competition Training',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+            ],
+            'Thursday' => [
+                'class_a' => [
+                    'class_start' => '09:00',
+                    'class_end' => '10:30',
+                    'class_name' => 'Morning Yoga',
+                    'class_coach' => 'Lisa Wong',
+                    'class_location' => 'Yoga Studio',
+                ],
+                'class_b' => [
+                    'class_start' => '19:00',
+                    'class_end' => '20:30',
+                    'class_name' => 'Competition Training',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+            ],
+            'Friday' => [
+                'class_a' => [
+                    'class_start' => '09:00',
+                    'class_end' => '10:30',
+                    'class_name' => 'Morning Yoga',
+                    'class_coach' => 'Lisa Wong',
+                    'class_location' => 'Yoga Studio',
+                ],
+                'class_b' => [
+                    'class_start' => '19:00',
+                    'class_end' => '20:30',
+                    'class_name' => 'Competition Training',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+            ],
+            'Saturday' => [
+                'class_a' => [
+                    'class_start' => '09:00',
+                    'class_end' => '10:30',
+                    'class_name' => 'Morning Yoga',
+                    'class_coach' => 'Lisa Wong',
+                    'class_location' => 'Yoga Studio',
+                ],
+                'class_b' => [
+                    'class_start' => '19:00',
+                    'class_end' => '20:30',
+                    'class_name' => 'Competition Training',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+            ],
+            'Sunday' => [
+                'class_a' => [
+                    'class_start' => '09:00',
+                    'class_end' => '10:30',
+                    'class_name' => 'Open Mat - Everyone is Welcome',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+                'class_b' => [
+                    'class_start' => '19:00',
+                    'class_end' => '20:30',
+                    'class_name' => 'Competition Training',
+                    'class_coach' => 'Ian Harrop',
+                    'class_location' => 'Main Gym',
+                ],
+            ],
+        ];
+          return view('timetable', ['page_title' => $data['page_title'],
+                                    'page_img'   => $data['page_img'],
+                                    'schedule_data' => $schedule_data]);
     }
     public function contact(){
-    $data = [
-                    'page_title' => 'Conatct us',
-                    'page_img' => 'images/Checkmat-team.png',
-                 
-                ];
-        return view('contact',$data);
-    }
+        $data = [
+                        'page_title' => 'Conatct us',
+                        'page_img' => 'images/Checkmat-team.png',
+                    
+                    ];
+            return view('contact',$data);
+        }
 }
