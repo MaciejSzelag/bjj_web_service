@@ -18,8 +18,9 @@ $sortedClasses = collect($classes)->sortBy('class_start')->toArray();
                     <tr class="bg-brand-primary-color text-white rounded-lg">
                         <th class="p-3 text-start">Time</th>
                         <th class="p-3 text-start">Class Name</th>
-                        <th class="p-3 text-start">Coach</th>
-                        <th class="p-3 text-start">Location</th>
+                        <th class="p-3 text-start hidden lg:table-cell">Coach</th>
+                        <th class="p-3 text-start hidden lg:table-cell">Location</th>
+                        <th class="p-3 text-start">More</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +29,11 @@ $sortedClasses = collect($classes)->sortBy('class_start')->toArray();
                         class="border-b border-slate-500 rounded-xl duration-150 hover:bg-slate-300 hover:border-slate-50">
                         <td class="p-2 font-bold">{{ $class['class_start'] }} - {{ $class['class_end'] }}</td>
                         <td class="p-2">{{ $class['class_name'] }}</td>
-                        <td class="p-2">{{ $class['class_coach'] }}</td>
-                        <td class="p-2">{{ $class['class_location'] }}</td>
+                        <td class="p-2 hidden lg:table-cell">{{ $class['class_coach'] }}</td>
+                        <td class="p-2 hidden lg:table-cell">{{ $class['class_location'] }}</td>
+                        <td class="p-2"><a href=""
+                                class="block text-center rounded-md w-full h-full bg-slate-700 text-slate-100">More</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 
 use Illuminate\Http\Request;
 
@@ -69,136 +71,40 @@ class PageController extends Controller
     }
     public function timetable(){
 
-        $data = [
-                'page_title' => 'Timetable',
-                'page_img' => 'images/Checkmat-wallpaper.jpg',
-        ];
-        $schedule_data = [
-            'Monday' => [
-                'class_a' => [
-                    'class_start' => '06:00',
-                    'class_end' => '07:00',
-                    'class_name' => 'GI Adults',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-                'class_b' => [
-                    'class_start' => '10:00',
-                    'class_end' => '11:00',
-                    'class_name' => 'GI Adults',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-                'class_c' => [
-                    'class_start' => '18:30',
-                    'class_end' => '20:00',
-                    'class_name' => 'GI Adults - Fundamentals',
-                    'class_coach' => 'Elias Freeman',
-                    'class_location' => 'Main Gym',
-                ],
-            ],
-            
-            'Tuesday' => [
-                'class_a' => [
-                    'class_start' => '07:00',
-                    'class_end' => '08:30',
-                    'class_name' => 'No-Gi Advanced',
-                    'class_coach' => 'Sarah Johnson',
-                    'class_location' => 'Mat Room 1',
-                ],
-                'class_b' => [
-                    'class_start' => '17:00',
-                    'class_end' => '18:30',
-                    'class_name' => 'Kids BJJ',
-                    'class_coach' => 'Mike Chen',
-                    'class_location' => 'Kids Area',
-                ],
-            ],
-            
-            'Wednesday' => [
-                'class_a' => [
-                    'class_start' => '09:00',
-                    'class_end' => '10:30',
-                    'class_name' => 'Morning Yoga',
-                    'class_coach' => 'Lisa Wong',
-                    'class_location' => 'Yoga Studio',
-                ],
-                'class_b' => [
-                    'class_start' => '19:00',
-                    'class_end' => '20:30',
-                    'class_name' => 'Competition Training',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-            ],
-            'Thursday' => [
-                'class_a' => [
-                    'class_start' => '09:00',
-                    'class_end' => '10:30',
-                    'class_name' => 'Morning Yoga',
-                    'class_coach' => 'Lisa Wong',
-                    'class_location' => 'Yoga Studio',
-                ],
-                'class_b' => [
-                    'class_start' => '19:00',
-                    'class_end' => '20:30',
-                    'class_name' => 'Competition Training',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-            ],
-            'Friday' => [
-                'class_a' => [
-                    'class_start' => '09:00',
-                    'class_end' => '10:30',
-                    'class_name' => 'Morning Yoga',
-                    'class_coach' => 'Lisa Wong',
-                    'class_location' => 'Yoga Studio',
-                ],
-                'class_b' => [
-                    'class_start' => '19:00',
-                    'class_end' => '20:30',
-                    'class_name' => 'Competition Training',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-            ],
-            'Saturday' => [
-                'class_a' => [
-                    'class_start' => '09:00',
-                    'class_end' => '10:30',
-                    'class_name' => 'Morning Yoga',
-                    'class_coach' => 'Lisa Wong',
-                    'class_location' => 'Yoga Studio',
-                ],
-                'class_b' => [
-                    'class_start' => '19:00',
-                    'class_end' => '20:30',
-                    'class_name' => 'Competition Training',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-            ],
-            'Sunday' => [
-                'class_a' => [
-                    'class_start' => '09:00',
-                    'class_end' => '10:30',
-                    'class_name' => 'Open Mat - Everyone is Welcome',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-                'class_b' => [
-                    'class_start' => '19:00',
-                    'class_end' => '20:30',
-                    'class_name' => 'Competition Training',
-                    'class_coach' => 'Ian Harrop',
-                    'class_location' => 'Main Gym',
-                ],
-            ],
-        ];
+
+        $data = config('gym.timetable_header');
+        $schedule_data = config('gym.schedule');
+
+
+        // 3. CACHE: bank holidays etc
+        $todayDate = date('Y-m-d');
+        // $todayDate = '2026-04-03';
+        $currentYear = date('Y');
+
+        $holidays = Cache::remember("bank_holidays_{$currentYear}", 86400, function () use ($currentYear) {
+            //  'GB' jeśli mieszkasz w Wielkiej Brytanii
+            $response = Http::get("https://date.nager.at/api/v3/PublicHolidays/{$currentYear}/GB");
+            return $response->successful() ? $response->json() : [];
+        });
+
+        // 4. Sprawdź czy dzisiaj jest święto
+        $isBankHoliday = false;
+        // $holidayName = 'Good Friday';
+        $holidayName = '';
+
+        foreach ($holidays as $holiday) {
+            if ($holiday['date'] === $todayDate) {
+                $isBankHoliday = true;
+                $holidayName = $holiday['localName'];
+                break;
+            }
+        }
+
           return view('timetable', ['page_title' => $data['page_title'],
                                     'page_img'   => $data['page_img'],
-                                    'schedule_data' => $schedule_data]);
+                                    'schedule_data' => $schedule_data],
+                                    compact('data', 'schedule_data', 'isBankHoliday', 'holidayName'));
+        // return view('timetable', compact('data', 'schedule_data', 'isBankHoliday', 'holidayName'));
     }
     public function contact(){
         $data = [
