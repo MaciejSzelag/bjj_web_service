@@ -114,4 +114,17 @@ class PageController extends Controller
                     ];
             return view('contact',$data);
         }
+    public function classes(){
+        $allClasses = config('gym.classes');
+        // $description = config('classes.classes.Gi BJJ Adults (All Levels)');
+        $data = [
+                        'page_title' => 'Classes',
+                        'page_img' => 'images/Checkmat-team.png',
+                    
+                    ];
+            return view('classes',['page_title' => $data['page_title'],
+                                    'page_img'   => $data['page_img'],
+                                    ],
+                                    compact('data', 'allClasses'));
+        }
 }
